@@ -51,7 +51,7 @@ class Contact extends Component {
       }
     render() {
         const { classes } = this.props;
-
+        
         return (
             <Card className={classes.card} variant="outlined">
             <CardContent>
@@ -99,7 +99,9 @@ class Contact extends Component {
           onChange={(e)=>this.handleChange(e,'message')}
         />
             <CardActions>
-              <Button size="small" onClick={(e)=>this.handleSubmit(e)}>Submit</Button>
+              <Button
+               disabled={!this.state.email && !this.state.message && !this.state.subject && !this.state.name}
+              variant="contained" color="primary" size="large" onClick={(e)=>this.handleSubmit(e)}>Submit</Button>
             </CardActions>
             </CardContent>
           </Card>
