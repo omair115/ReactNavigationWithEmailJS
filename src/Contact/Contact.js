@@ -51,7 +51,12 @@ class Contact extends Component {
       }
     render() {
         const { classes } = this.props;
-        
+        const enabled =
+        this.state.email.length > 0 &&
+        this.state.name.length > 0 &&
+        this.state.subject.length > 0 &&
+        this.state.message.length > 0
+        ;
         return (
             <Card className={classes.card} variant="outlined">
             <CardContent>
@@ -100,7 +105,7 @@ class Contact extends Component {
         />
             <CardActions>
               <Button
-               disabled={!this.state.email && !this.state.message && !this.state.subject && !this.state.name}
+               disabled={!enabled}
               variant="contained" color="primary" size="large" onClick={(e)=>this.handleSubmit(e)}>Submit</Button>
             </CardActions>
             </CardContent>
